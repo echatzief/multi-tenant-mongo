@@ -7,7 +7,8 @@
     "@hono/node-server": "^1.12.2",
     "dotenv": "^16.4.5",
     "hono": "^4.6.1",
-    "mongodb": "^6.9.0"
+    "mongodb": "^6.9.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/mongodb": "^4.0.7",

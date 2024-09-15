@@ -8,7 +8,7 @@ const startServer = async () => {
 
   await connectDB();
 
-  console.log(`Server started at http://localhost:${config.SERVER_PORT}`);
+  console.log(`App started at http://localhost:${config.SERVER_PORT}`);
 
   serve({
     fetch: app.fetch,

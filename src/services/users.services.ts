@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { Db, Filter, Document } from "mongodb";
+import { Db, Filter, Document, ObjectId } from "mongodb";
 import { databaseManager } from "@/db";
 import User from "@/models/user.model";
 
@@ -20,14 +20,15 @@ class UserService {
     return await db.collection('users').findOne({ _id: id });
   }
 
-  static async update(c: Context, id: string, data: User) {
+  static async update(c: Context, id: ObjectId, data: User) {
     const db: Db = databaseManager.db(c.get('tenant'));
-    return await db.collection('users').updateOne({ id: id }, data);
+    await db.collection('users').updateOne({ _id: id }, { $set: data });
+    return await db.collection('users').findOne({ _id: id });
   }
 
-  static async delete(c: Context, id: string) {
+  static async delete(c: Context, id: ObjectId) {
     const db: Db = databaseManager.db(c.get('tenant'));
-    return await db.collection('users').deleteOne({ id: id });
+    await db.collection('users').deleteOne({ _id: id });
   }
 }
 

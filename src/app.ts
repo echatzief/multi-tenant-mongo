@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { userRouter } from '@/routes/users.router';
+import { userRouter } from '@/routes/user.router';
 import { injectTenant } from '@/middlewares/tenant.middleware';
 
 const app = new Hono()
