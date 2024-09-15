@@ -5,11 +5,11 @@ export let databaseManager: MongoClient
 
 export async function connectDB() {
   try {
-    const client: MongoClient = new MongoClient(config.MONGO_URI)
-    await client.connect()
-    databaseManager = client
+    const client: MongoClient = new MongoClient(config.MONGO_URI);
+    await client.connect();
+    databaseManager = client;
   } catch {
-    console.log('Woops!! Failed to connect to the database cluster')
+    throw new Error('Woops!! Failed to connect to the database cluster');
   }
 }
 

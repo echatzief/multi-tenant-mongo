@@ -3,7 +3,6 @@ import { app } from '@/app'
 import { connectDB } from '@/db'
 import { config } from '@/utils/envConfig'
 
-
 const startServer = async () => {
 
   await connectDB()
