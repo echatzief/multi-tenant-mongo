@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod'
 
 const userShema = z.object({
     name: z.string(),

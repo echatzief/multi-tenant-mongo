@@ -1,9 +1,12 @@
 {
   "name": "multi-tenant",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@hono/eslint-config": "^1.0.1",
     "@hono/node-server": "^1.12.2",
     "dotenv": "^16.4.5",
     "hono": "^4.6.1",
@@ -13,6 +16,8 @@
   "devDependencies": {
     "@types/mongodb": "^4.0.7",
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1"
+    "eslint": "^9.10.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.5.4"
   }
 }

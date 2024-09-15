@@ -1,11 +1,11 @@
-import { Hono } from 'hono';
-import { userRouter } from '@/routes/user.router';
-import { injectTenant } from '@/middlewares/tenant.middleware';
+import { Hono } from 'hono'
+import { injectTenant } from '@/middlewares/tenant.middleware'
+import { userRouter } from '@/routes/user.router'
 
 const app = new Hono()
 
 app.use('*', injectTenant)
 
-app.route('/api/users', userRouter);
+app.route('/api/users', userRouter)
 
-export { app };
+export { app }
