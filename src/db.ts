@@ -20,6 +20,12 @@ export async function connectDB() {
       const name = tenantDatabases[i].name;
       tenantClients[name] = new MongoClient(config.MONGO_URI)
       await tenantClients[name].connect();
+
+      // close connection after OPEN_CONNECTION_SECONDS time
+      setTimeout(async () => {
+        await tenantClients[name].close();
+        console.log(`Closing connection after ${config.OPEN_CONNECTION_SECONDS} seconds for \"${name}\"`)
+      }, config.OPEN_CONNECTION_SECONDS * 1000)
     }
   } catch {
     throw new Error('Woops!! Failed to connect to the database cluster');

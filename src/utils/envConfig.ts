@@ -7,6 +7,7 @@ class Config {
 
   public readonly SERVER_PORT: number
   public readonly MONGO_URI: string
+  public readonly OPEN_CONNECTION_SECONDS: number
 
   private constructor() {
     if (!process.env.MONGO_URI || !process.env.SERVER_PORT) {
@@ -14,6 +15,7 @@ class Config {
     }
     this.SERVER_PORT = process.env.SERVER_PORT ? +process.env.SERVER_PORT : 3000
     this.MONGO_URI = process.env.MONGO_URI
+    this.OPEN_CONNECTION_SECONDS = process.env.OPEN_CONNECTION_SECONDS ? +process.env.OPEN_CONNECTION_SECONDS : 20
   }
 
   public static getInstance(): Config {
