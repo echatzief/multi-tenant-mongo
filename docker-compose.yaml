@@ -1,0 +1,13 @@
+services:
+  multi_tenant_approach:
+    image: mongo:latest
+    container_name: multi_tenant_approach
+    ports:
+      - "27017:27017"
+    volumes:
+      - multi_tenant_approach_volume:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+volumes:
+  multi_tenant_approach_volume:
